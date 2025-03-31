@@ -1,0 +1,736 @@
+/* ========== GLOBAL STYLES ========== */
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.main-content {
+  padding-bottom: 60px; /* or however tall your footer is */
+}
+
+/* Containers */
+.container,
+.vision-sequence-wrapper,
+.challenge-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+/* Headings */
+.challenge-wrapper h2,
+.vision-sequence-wrapper h2 {
+  text-align: center;
+}
+
+/* ========== PROGRESS BAR ========== */
+/* Progress Bar Container */
+.progress-container {
+  position: relative;
+  background: #eee;
+  border-radius: 8px;
+  height: 20px;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+/* Animated progress bar fill */
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  border-radius: 8px;
+}
+
+/* Progress text overlay */
+.progress-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  line-height: 20px; /* same as container height */
+  font-size: 0.9rem;
+  color: #333;
+  pointer-events: none;
+}
+
+/* ========== LANDING PAGE ========== */
+/* Full-page section with a subtle gradient background */
+.landing-container {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(120deg, #f6f9fc, #e1ecf7);
+  overflow: hidden; /* for floating icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Main content container */
+.landing-content {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title & subtitle */
+.landing-title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+.landing-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Start button */
+.start-adventure-btn {
+  background: #007bff;
+  color: white;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.start-adventure-btn:hover {
+  background: #0056b3;
+}
+
+/* ------------------ FLOATING ICONS BACKGROUND ------------------ */
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* so user can click through them */
+  overflow: hidden;
+}
+
+/* Reusable classes for icons */
+.icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.2;
+  animation: floatIcons 6s ease-in-out infinite;
+}
+
+/* Example custom icons: eye, ear, wheelchair, keyboard 
+   You can replace background images with your own SVG or PNG.
+   Or use icon fonts like Font Awesome if you prefer. 
+*/
+.icon-eye {
+  background-image: url("https://img.icons8.com/emoji/48/eye-emoji.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 10%;
+  left: 5%;
+}
+.icon-ear {
+  background-image: url("https://img.icons8.com/emoji/48/ear-emoji.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 30%;
+  left: 80%;
+}
+.icon-wheelchair {
+  background-image: url("https://img.icons8.com/emoji/48/person-in-manual-wheelchair.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 60%;
+  left: 20%;
+}
+.icon-keyboard {
+  background-image: url("https://img.icons8.com/emoji/48/keyboard.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 80%;
+  left: 60%;
+}
+
+/* Simple floating animation keyframes */
+@keyframes floatIcons {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(15deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* ========== VISION PANELS ========== */
+.vision-panels {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.panel {
+  flex: 1;
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 15px;
+  min-height: 150px;
+  position: relative;
+}
+.normal-view {
+  background: #fafafa;
+}
+.impaired-view {
+  background: #e0e0e0;
+}
+
+/* ========== TOOLTIP & EDUCATIVE PANEL ========== */
+.tooltip-trigger {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+}
+.tooltip-icon {
+  background: #eee;
+  border-radius: 50%;
+  padding: 2px 6px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.tooltip-content {
+  visibility: hidden;
+  opacity: 0;
+  background: #222;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  position: absolute;
+  left: 0;
+  top: 120%;
+  width: 240px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+  font-size: 0.9rem;
+}
+.tooltip-trigger:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.educative-panel {
+  background: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-left: 5px solid #007bff;
+  font-size: 0.95rem;
+}
+
+/* ========== SLIDER CONTROLS ========== */
+.severity-controls {
+  margin: 20px 0;
+}
+.severity-controls input[type="range"] {
+  width: 100%;
+}
+
+/* ========== FIX BUTTON ========== */
+.fix-btn {
+  background: #4caf50;
+  border: none;
+  color: #fff;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+.fix-btn:hover {
+  background: #388e3c;
+}
+
+/* ========== SUCCESS MESSAGE ========== */
+.success-msg {
+  background: #5cb85c;
+  color: #fff;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* ========== TUNNEL VISION CHALLENGE ========== */
+.tunnel-vision-container {
+  position: relative;
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  background: #fff;
+  outline: none;
+}
+
+.sample-content {
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+}
+
+/* When fix is enabled, reflow the content for narrow vision */
+.sample-content.fixed-layout {
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 15px;
+  /* Optional: add a border or background to emphasize structure */
+  border: 2px solid #007bff;
+  border-radius: 5px;
+}
+
+/* The tunnel overlay remains on top */
+.tunnel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Focus styles for elements within the tunnel vision container */
+.tunnel-vision-container:focus-within,
+.tunnel-vision-container button:focus,
+.tunnel-vision-container a:focus,
+.tunnel-vision-container input:focus {
+  outline: 2px solid blue;
+}
+
+/* ========== NEXT BUTTON ========== */
+.next-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+.next-btn:hover {
+  background: #0056b3;
+}
+
+/* ========== VISION SEQUENCE WRAPPER ========== */
+.vision-sequence-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+/* ========== GLARE CHALLENGE SPECIFIC ========== */
+.glare-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* Dark mode for glare fix: High contrast, but not pure white on black. */
+.glare-container.dark-mode {
+  background: #1a1a1a; /* Dark background */
+  color: #e6e6e6; /* Light text with comfortable contrast */
+}
+
+.glare-container.dark-mode .panel {
+  background: #2a2a2a; /* Slightly lighter than container background */
+}
+
+.glare-container.dark-mode .normal-view h4,
+.glare-container.dark-mode .impaired-view h4 {
+  color: #ffffff;
+}
+
+.glare-container.dark-mode .normal-view p,
+.glare-container.dark-mode .impaired-view p {
+  color: #e6e6e6;
+}
+/* ========== FLOATERS SIMULATION ========== */
+.floaters-simulation {
+  position: relative;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Text container: now adjusts font-size rather than using transform: scale */
+.text-container {
+  width: 100%;
+  box-sizing: border-box;
+  white-space: normal; /* Ensure text wraps */
+  overflow-wrap: break-word;
+  transition: font-size 0.5s ease;
+  font-size: 16px; /* Default size */
+}
+
+.text-container.zoomed {
+  font-size: 32px; /* 200% zoom relative to default */
+  line-height: 1.4;
+}
+
+/* Floaters overlay: sits over the text container */
+.floaters-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+/* Each floater styled as a dark blob (like a jellyfish) */
+.floater {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+  user-select: none;
+  animation: floatersAnim 3s ease-in-out infinite;
+}
+@keyframes floatersAnim {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+/* ========== COLOR BLINDNESS CHALLENGE ========== */
+/* Container for colorblind side-by-side panels */
+.colorblind-panels {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Right panel in colorblind simulation mode */
+.colorblind-view {
+  transition: filter 0.5s ease;
+}
+
+/* If fixPalette is true, we remove the filter. 
+   We might also tweak background or text color 
+   for a colorblind-safe palette. */
+.colorblind-view.fixed-palette {
+  background: #fafafa; /* Slightly off-white */
+}
+
+/* Example content with color-coded problems */
+.example-content {
+  margin-top: 10px;
+}
+
+/* ========== PROBLEMS ========== */
+
+/* Red error text (Normal Panel) */
+.error-text-normal {
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Green success button (Normal Panel) */
+.success-btn-normal {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Low contrast text (Normal Panel) */
+.low-contrast-text-normal {
+  color: #bbb; /* Very light gray */
+  margin-bottom: 10px;
+}
+
+/* Color-only link (Normal Panel) */
+.color-only-link {
+  color: blue;
+  cursor: pointer;
+  text-decoration: none; /* Relying on color alone */
+}
+
+/* ========== SIMULATED PROBLEMS (Right Panel) ========== */
+/* Error text in colorblind view */
+.error-text-cb {
+  color: red; /* Hard to see for some colorblind types */
+  margin-bottom: 10px;
+  transition: color 0.5s;
+}
+.error-text-cb.fixed-error {
+  color: #000; /* Switch to black text */
+  &:before {
+    content: "🚫 ";
+  }
+}
+
+/* Success button in colorblind view */
+.success-btn-cb {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.5s, color 0.5s;
+}
+.success-btn-cb.fixed-contrast {
+  background-color: #0056b3; /* More contrast-friendly color */
+}
+
+/* Low contrast text in colorblind view */
+.low-contrast-text-cb {
+  color: #bbb;
+  margin-bottom: 10px;
+  transition: color 0.5s;
+}
+.low-contrast-text-cb.fixed-contrast {
+  color: #333; /* Darker text for better contrast */
+}
+
+/* Color-only link in colorblind view */
+.color-only-link-cb {
+  color: blue;
+  cursor: pointer;
+  text-decoration: none;
+  transition: text-decoration 0.5s, color 0.5s;
+}
+.color-only-link-cb.fixed-links {
+  text-decoration: underline; /* Underline for non-color cue */
+}
+
+/* ========== FIX BUTTONS ========== */
+.fix-tools {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fix-btn {
+  background: #4caf50;
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+.fix-btn:hover {
+  background: #388e3c;
+}
+/* ========== Motor-Challenge-Specific Styles ========== */
+.motor-challenge {
+  position: relative;
+  min-height: 250px;
+  background: #f3f3f3;
+  overflow: hidden;
+}
+
+/* Hide the native cursor, replaced by custom-cursor <div> */
+.motor-challenge {
+  cursor: none;
+}
+
+/* ---------- Custom Cursor Styles ---------- */
+.custom-cursor {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  width: 15px;
+  height: 15px;
+}
+
+/* Container for the target button, centered */
+.target-container {
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+.normal-view {
+  cursor: none;
+}
+*/
+/* Smaller "Click Me" button */
+.small-btn {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.small-btn:hover {
+  background-color: #bbb;
+}
+
+/* ---------- Global ProgressBar Styles (from previous update) ---------- */
+.progress-container {
+  position: relative;
+  background: #eee;
+  border-radius: 8px;
+  height: 20px;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  border-radius: 8px;
+}
+
+.progress-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  line-height: 20px;
+  font-size: 0.9rem;
+  color: #333;
+  pointer-events: none;
+}
+
+/* ---------- Next Button (global) ---------- */
+.next-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+.next-btn:hover {
+  background: #0056b3;
+}
+
+/* ---------- Existing Global Styles ---------- */
+/* (Other styles from your previous CSS remain unchanged) */
+
+.shaky-btn {
+  background-color: #f44336; /* a noticeable red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ---------- Fix Styles ---------- */
+.fix-btn {
+  background: #4caf50;
+  border: none;
+  color: #fff;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+.fix-btn:hover {
+  background: #388e3c;
+}
+
+/* Existing ProgressBar and Next Button styles remain unchanged */
+.next-button {
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Confetti keyframes */
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(-100px) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(800px) rotate(720deg);
+  }
+}
+
+.certificate-container {
+  border: 10px double #8c8c8c;
+  background: #fefcf5;
+  padding: 2.5rem;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2rem auto;
+  font-family: "Georgia", serif;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-container h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.certificate-container p {
+  margin: 0.5rem 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.certificate-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-decoration: underline;
+}
