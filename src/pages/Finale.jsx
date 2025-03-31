@@ -41,7 +41,7 @@ const Finale = () => {
   const certificateRef = useRef(null);
 
   // Use your real share URL
-  const shareUrl = "https://your-production-site.com";
+  const shareUrl = "webaxe.vercel.app";
   const title =
     "I just completed the Accessibility Challenge! 🧠💻 Make it usable. No excuses.";
 
