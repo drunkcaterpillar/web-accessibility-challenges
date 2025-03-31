@@ -30,7 +30,7 @@ Built by [drunkcaterpillar](https://github.com/drunkcaterpillar) / [@cryptidsann
 - Framer Motion
 - React Router
 - React Share
-- Plain CSS (no UI libs, just ✨vibes✨)
+- Plain CSS
 
 ---
 
