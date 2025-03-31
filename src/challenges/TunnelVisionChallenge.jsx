@@ -81,11 +81,22 @@ const TunnelVisionChallenge = () => {
       </div>
       <div className="fix-panel">
         <p>
-          Press <strong>F</strong> to reflow the page content. The new layout
-          uses larger fonts and a narrower column, making it easier to read with
-          tunnel vision.
+          Tunnel vision makes it hard to track wide or scattered layouts. Enable
+          a focused, reflowed view for better readability.
         </p>
+        {!fixEnabled && (
+          <button
+            className="fix-btn"
+            onClick={() => {
+              setFixEnabled(true);
+              updateProgress("tunnel-vision", 100);
+            }}
+          >
+            🛠️ Fix Layout for Tunnel Vision
+          </button>
+        )}
       </div>
+
       {isComplete && (
         <motion.div
           className="success-msg"
